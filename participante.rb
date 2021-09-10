@@ -12,9 +12,35 @@ class Participante
         @partidasPerdidas = partidasPerdidas
         @@todos.push self 
     end
+
+    def puntaje
+        (@partidasGanadas)*4 + (@partidasEmpatadas)*3
+    end
+
+    def self.modificar_puntaje dni, victorias
+        participante = self.obtener_por_dni dni
+        participante.partidasGanadas = victorias       
+    end    
+
     
     def self.obtener_por_dni dni 
-        @@todos.find {|i| i.dni == dni} 
+        @@todos.find {|i| i.dni == dni}          
+    end
+
+    def self.obtener_campeon 
+        max_puntaje = 0
+        campeon = nil 
+        @@todos.each do |participante|
+            if participante.puntaje > max_puntaje 
+                campeon = participante
+            end 
+        end
+        campeon 
+    end
+
+    def self.tabla_posiciones
+       tabla = @@todos.sort_by {|i| i.puntaje} 
+       tabla.reverse
     end
 
 
