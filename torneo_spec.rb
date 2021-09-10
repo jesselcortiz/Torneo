@@ -30,7 +30,7 @@ end
 RSpec.describe Equipo do
     context 'inicializar clase equipo' do
         before(:each) do
-            @equipo = Equipo.new 4, "Sebastian"
+            @equipo = Equipo.new 1, "Jacinta"
         end
 
         it '#new' do        
@@ -38,8 +38,9 @@ RSpec.describe Equipo do
         end
 
         it 'new#nombre' do
-            expect(@equipo.nombre).to eq('Sebastian')
+            expect(@equipo.nombre).to eq('Jacinta')
         end
 
     end
 end
+

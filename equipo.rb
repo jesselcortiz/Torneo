@@ -10,10 +10,6 @@ class Equipo
         @@todos.push self
     end
 
-    def puntaje
-        @puntaje = (partidasGanadas)*4 + (partidasEmpatadas)*3
-    end
-
     def agregar_participante participante 
         @participantes.push participante 
     end

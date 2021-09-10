@@ -32,19 +32,36 @@ equipo6.agregar_participante Participante.new 6, "Dominga", 23, "23.987.654-3", 
 
 
 
+puts "***********************************"
+#A) 
+puts "Busqueda de participante por DNI"
+Participante.obtener_por_dni "24.222.333-4" 
+puts Participante.obtener_por_dni("24.222.333-4").nombre 
+puts Participante.obtener_por_dni("12.345.678-9") 
+
+
+puts "***********************************"
+
+#B)
 puts "El campeón es:"
-puts Participante.obtener_campeon 
+puts Participante.obtener_campeon.nombre
 
+
+puts "***********************************"
+#C)
 puts "La tabla de posiciones:"
-
-
 Participante.tabla_posiciones.each do |participante|
     puts participante.nombre
 end
 
 
-Participante.modificar_puntaje "18.222.445-6", 4
-puts Participante.obtener_por_dni("18.222.445-6").partidasGanadas
+puts "***********************************"
+#D)
+Participante.modificar_puntaje "22.122.322-2", 4
+puts Participante.obtener_por_dni("22.122.322-2").partidasGanadas
 
+
+puts "***********************************"
+#E)
 puts "Equipos y sus miembros:"
 Equipo.obtener_equipos_puntaje 

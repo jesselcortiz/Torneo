@@ -24,7 +24,12 @@ class Participante
 
     
     def self.obtener_por_dni dni 
-        @@todos.find {|i| i.dni == dni}          
+        encontrado = @@todos.find {|i| i.dni == dni}  
+        if encontrado 
+            encontrado        
+        else 
+            "Participante no encontrado"
+        end
     end
 
     def self.obtener_campeon 
@@ -33,6 +38,7 @@ class Participante
         @@todos.each do |participante|
             if participante.puntaje > max_puntaje 
                 campeon = participante
+                max_puntaje = participante.puntaje
             end 
         end
         campeon 
@@ -43,6 +49,7 @@ class Participante
        tabla.reverse
     end
 
+    
 
 end 
 
